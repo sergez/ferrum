@@ -14,7 +14,7 @@ Instalation
 Documentation
 -------------
 
-Up-to date documentation can be found at [http://jsdoc.info/SergeZ/FerrumJS/](http://jsdoc.info/SergeZ/ferrum/)
+Up-to date documentation can be found at [http://jsdoc.info/SergeZ/ferrum/](http://jsdoc.info/SergeZ/ferrum/)
 
 
 Usage
