@@ -14,20 +14,25 @@ Instalation
 Documentation
 -------------
 
-Up-to date documentation can be found at [http://jsdoc.info/SergeZ/FerrumJS/](http://jsdoc.info/SergeZ/FerrumJS/)
+Up-to date documentation can be found at [http://jsdoc.info/SergeZ/FerrumJS/](http://jsdoc.info/SergeZ/ferrum/)
 
 
 Usage
 -----
 
 ```js
-var ferrum = require("ferrum");
+var util = require('util');
+var ferrum = require('ferrum');
 
-var MainHandler = ferrum.RequestHandler.extend({
-    get: function () {
+function MainHandler () {
+    ferrum.RequestHandler.call(this);
+    
+    this.get = function () {
         this.write("Hello world!");
-    }
-});
+    };
+}
+
+util.inherits(MainHandler, ferrum.RequestHandler);
 
 ferrum.Application({
     port: process.env.PORT,
