@@ -1,20 +1,20 @@
-FerrumJS [alfa]
+Ferrum [alfa]
 =========
 
 What is it?
 -----------
 
-FerrumJS is simple and powerfull web server for [node.js](http://nodejs.org). It's designed for quick and simple development of high-performance application. Just try it.
+Ferrum is simple and powerfull web server for [node.js](http://nodejs.org). It's designed for quick and simple development of high-performance application. Just try it.
 
 Instalation
 -----------
 
-`npm install`
+`npm install ferrum`
 
 Documentation
 -------------
 
-Up-to date documentation can be found at [http://jsdoc.info/SergeZ/ferrum/](http://jsdoc.info/SergeZ/ferrum/)
+Up-to date documentation can be found at [http://jsdoc.info/sergez/ferrum/](http://jsdoc.info/sergez/ferrum/)
 
 
 Usage
