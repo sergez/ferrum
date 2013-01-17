@@ -1,4 +1,4 @@
-Ferrum [alfa]
+Ferrum [alfa] [![Build Status](https://travis-ci.org/sergez/ferrum.png?branch=master)](undefined)
 =========
 
 What is it?
@@ -14,7 +14,7 @@ Instalation
 Documentation
 -------------
 
-Up-to date documentation can be found at [http://jsdoc.info/sergez/ferrum/](http://jsdoc.info/sergez/ferrum/)
+In progress
 
 
 Usage
