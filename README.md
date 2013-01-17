@@ -1,4 +1,4 @@
-Ferrum [alfa] [![Build Status](https://travis-ci.org/sergez/ferrum.png?branch=master)](undefined)
+Ferrum [alfa] [![Build Status](https://travis-ci.org/sergez/ferrum.png?branch=master)](ferrum)
 =========
 
 What is it?
