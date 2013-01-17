@@ -98,7 +98,7 @@ vows.describe('ferrum/Request Handler/Query Params').addBatch({
       },
     },
     
-    'POST (file)': {
+    /*'POST (file)': {
       topic: function () {
         var data = {
           "image": { file: './test/test.txt', content_type: 'text/html' },
@@ -111,7 +111,7 @@ vows.describe('ferrum/Request Handler/Query Params').addBatch({
         assert.equal(topic.statusCode, '200');
         //assert.equal(body, '');
       },
-    }
+    }*/
 
   }
 }).export(module);
