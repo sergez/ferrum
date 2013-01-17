@@ -26,8 +26,6 @@ vows.describe('ferrum/Request Handler/Cookies').addBatch({
       util.inherits(CookieHandler, requestHandler.RequestHandler);
       
       ferrum.Application({
-        port: process.env.PORT,
-        address: process.env.IP,
         routes: {
           '^/cookie$': CookieHandler
         }
@@ -38,7 +36,7 @@ vows.describe('ferrum/Request Handler/Cookies').addBatch({
     
     'Set cookies': {
       topic: function () {
-        client.get(process.env.IP + ':' + process.env.PORT + '/cookie', this.callback);
+        client.get('127.0.0.1:8888/cookie', this.callback);
       },
       'should be set-cookie header defined': function (err, response, body) {
         assert.equal(/testCookie=value/.test(response.headers['set-cookie'][0]), true);

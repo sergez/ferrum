@@ -25,8 +25,6 @@ vows.describe('Ferrum/Request Handler/Render templates').addBatch({
       util.inherits(TemplateHandler, requestHandler.RequestHandler);
       
       ferrum.Application({
-        /*port: process.env.PORT,
-        address: process.env.IP,*/
         views: './test/tpl/',
         routes: {
           '^/template': TemplateHandler

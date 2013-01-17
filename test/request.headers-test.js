@@ -63,8 +63,6 @@ vows.describe('ferrum/Request Handler/Headers').addBatch({
       util.inherits(GetRequestHeaderDefaultValueHandler, requestHandler.RequestHandler);
       
       ferrum.Application({
-        port: process.env.PORT,
-        address: process.env.IP,
         routes: {
           '^/set-header$': SetHeaderHandler,
           '^/get-header$': GetHeaderHandler,
@@ -79,7 +77,7 @@ vows.describe('ferrum/Request Handler/Headers').addBatch({
     
     'Set header': {
       topic: function () {
-        client.get(process.env.IP + ':' + process.env.PORT + '/set-header', this.callback);
+        client.get('127.0.0.1:8888/set-header', this.callback);
       },
       'should be header defined': function (err, topic, body) {
         assert.equal(topic.headers['content-type'], 'text/xml; charset=cp-1251');
@@ -88,7 +86,7 @@ vows.describe('ferrum/Request Handler/Headers').addBatch({
     
     'Get header': {
       topic: function () {
-        client.get(process.env.IP + ':' + process.env.PORT + '/get-header', this.callback);
+        client.get('127.0.0.1:8888/get-header', this.callback);
       },
       'should be header defined': function (err, topic, body) {
         assert.equal(body, 'text/xml; charset=cp-1251');
@@ -97,7 +95,7 @@ vows.describe('ferrum/Request Handler/Headers').addBatch({
     
     'Get header (default value)': {
       topic: function () {
-        client.get(process.env.IP + ':' + process.env.PORT + '/get-header-default-value', this.callback);
+        client.get('127.0.0.1:8888/get-header-default-value', this.callback);
       },
       'should be header defined': function (err, topic, body) {
         assert.equal(body, 'DefaultValue');
@@ -106,7 +104,7 @@ vows.describe('ferrum/Request Handler/Headers').addBatch({
     
     'Get request header': {
       topic: function () {
-        client.get(process.env.IP + ':' + process.env.PORT + '/get-request-header', {user_agent: 'Test-Agent'}, this.callback);
+        client.get('127.0.0.1:8888/get-request-header', {user_agent: 'Test-Agent'}, this.callback);
       },
       'should be header defined': function (err, topic, body) {
         assert.equal(body, 'Test-Agent');
@@ -115,7 +113,7 @@ vows.describe('ferrum/Request Handler/Headers').addBatch({
     
     'Get request header (default value)': {
       topic: function () {
-        client.get(process.env.IP + ':' + process.env.PORT + '/get-request-header-default-value', {user_agent: 'Test-Agent'}, this.callback);
+        client.get('127.0.0.1:8888/get-request-header-default-value', {user_agent: 'Test-Agent'}, this.callback);
       },
       'should be header defined': function (err, topic, body) {
         assert.equal(body, 'DefaultValue');

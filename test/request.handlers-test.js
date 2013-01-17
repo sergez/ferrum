@@ -79,8 +79,6 @@ vows.describe('ferrum/Request Handler/Handlers').addBatch({
       util.inherits(MainHandler, requestHandler.RequestHandler);
       
       ferrum.Application({
-        port: process.env.PORT,
-        address: process.env.IP,
         routes: { '^/$': MainHandler }
       }).run();
       

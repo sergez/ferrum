@@ -89,7 +89,7 @@ Client.prototype.createPostBodyUrledcoded = function (data) {
 };
 
 Client.prototype.get = function(path, callback) {
-    http.request({ host: process.env.IP, port: process.env.PORT, method: "GET", path: path}, function(response) {
+    http.request({ host: '127.0.0.1', port: '8888', method: "GET", path: path}, function(response) {
         callback.apply(this, [null, response]);
     }).end();
 };
@@ -114,8 +114,8 @@ Client.prototype.post = function (path, data, type, callback) {
         }
         
         var request = http.request({ 
-            host: process.env.IP,
-            port: process.env.PORT,
+            host: '127.0.0.1',
+            port: '8888',
             method: "POST",
             path: path,
             headers: headers
@@ -132,37 +132,37 @@ Client.prototype.post = function (path, data, type, callback) {
 };
 
 Client.prototype.head = function (path, callback) {
-    http.request({ host: process.env.IP, port: process.env.PORT, method: "HEAD", path: path}, function(response) {
+    http.request({ host: '127.0.0.1', port: '8888', method: "HEAD", path: path}, function(response) {
         callback.apply(this, [null, response]);
     }).end();
 };
 
 Client.prototype.put = function (path, callback) {
-    http.request({ host: process.env.IP, port: process.env.PORT, method: "PUT", path: path}, function(response) {
+    http.request({ host: '127.0.0.1', port: '8888', method: "PUT", path: path}, function(response) {
         callback.apply(this, [null, response]);
     }).end();
 };
 
 Client.prototype.delete = function (path, callback) {
-    http.request({ host: process.env.IP, port: process.env.PORT, method: "DELETE", path: path}, function(response) {
+    http.request({ host: '127.0.0.1', port: '8888', method: "DELETE", path: path}, function(response) {
         callback.apply(this, [null, response]);
     }).end();
 };
 
 Client.prototype.patch = function (path, callback) {
-    http.request({ host: process.env.IP, port: process.env.PORT, method: "PATCH", path: path}, function(response) {
+    http.request({ host: '127.0.0.1', port: '8888', method: "PATCH", path: path}, function(response) {
         callback.apply(this, [null, response]);
     }).end();
 };
 
 Client.prototype.put = function (path, callback) {
-    http.request({ host: process.env.IP, port: process.env.PORT, method: "PUT", path: path}, function(response) {
+    http.request({ host: '127.0.0.1', port: '8888', method: "PUT", path: path}, function(response) {
         callback.apply(this, [null, response]);
     }).end();
 };
 
 Client.prototype.options = function (path, callback) {
-    http.request({ host: process.env.IP, port: process.env.PORT, method: "OPTIONS", path: path}, function(response) {
+    http.request({ host: '127.0.0.1', port: '8888', method: "OPTIONS", path: path}, function(response) {
         callback.apply(this, [null, response]);
     }).end();
 };
