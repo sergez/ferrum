@@ -4,17 +4,17 @@
 var vows = require('vows');
 var assert = require('assert');
 var util = require('util');
+var client = require('needle');
 
+var config = require('./config');
 var ferrum = require('../lib/index');
 var requestHandler = require('../lib/request-handler');
-
-var client = require('needle');
 
 //var os = require('os');
 
 // ferrum :: Request Test Suite
 vows.describe('ferrum/Request Handler/Query Params').addBatch({
-  'Request Handler': {
+  '': {
     topic: function () {
       // default handler
       function ParamsHandler () {
@@ -40,6 +40,8 @@ vows.describe('ferrum/Request Handler/Query Params').addBatch({
       util.inherits(FilesHandler, requestHandler.RequestHandler);      
       
       ferrum.Application({
+        host: config.host,
+        port: config.port,
         routes: {
           '^/params$': ParamsHandler,
           '^/files$': FilesHandler,
@@ -51,7 +53,7 @@ vows.describe('ferrum/Request Handler/Query Params').addBatch({
     
     'GET (params1=value1&params2=value2)': {
       topic: function () {
-        client.get('127.0.0.1:8888/params?params1=value1&params2=value2', this.callback);
+        client.get(config.host + ':' + config.port + '/params?params1=value1&params2=value2', this.callback);
       },
       'should respond 200 OK': function (err, topic, body) {
         assert.equal(topic.statusCode, '200');
@@ -63,7 +65,7 @@ vows.describe('ferrum/Request Handler/Query Params').addBatch({
     
     'GET (params1=value1&params1=value2)': {
       topic: function () {
-        client.get('127.0.0.1:8888/params?params1=value1&params1=value2', this.callback);
+        client.get(config.host + ':' + config.port + '/params?params1=value1&params1=value2', this.callback);
       },
       'should respond 200 OK': function (err, topic, body) {
         assert.equal(topic.statusCode, '200');
@@ -75,7 +77,7 @@ vows.describe('ferrum/Request Handler/Query Params').addBatch({
     
     'GET (params[]=value1&params[]=value2)': {
       topic: function () {
-        client.get('127.0.0.1:8888/params?params[]=value1&params[]=value2', this.callback);
+        client.get(config.host + ':' + config.port + '/params?params[]=value1&params[]=value2', this.callback);
       },
       'should respond 200 OK': function (err, topic, body) {
         assert.equal(topic.statusCode, '200');
@@ -87,7 +89,7 @@ vows.describe('ferrum/Request Handler/Query Params').addBatch({
     
     'POST': {
       topic: function () {
-        client.post('127.0.0.1:8888/params', {params: ["value1", "value2"]}, this.callback);
+        client.post(config.host + ':' + config.port + '/params', {params: ["value1", "value2"]}, this.callback);
       },
       
       'should respond 200 OK': function (err, topic, body) {

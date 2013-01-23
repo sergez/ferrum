@@ -13,8 +13,8 @@ var logPathExists = path.join(process.cwd(), './test/directory-exists/app.log');
 var logPathDoesNotExists = path.join(process.cwd(), './test/dir-doesn-not-exists/app.log');
 
 // Ferrum :: Application Test Suite
-vows.describe('Ferrum').addBatch({
-  'Application': {
+vows.describe('Ferrum/Application').addBatch({
+  'Instance': {
     topic: ferrum.Application(),
     
     'should be defined': function (app) {
@@ -48,7 +48,7 @@ vows.describe('Ferrum').addBatch({
     }
   },
     
-  'Application :: Logger :: debugMode = true': {
+  'Logger :: debugMode = true': {
     topic: ferrum.Application({
       debugMode: true
     }),
@@ -59,7 +59,7 @@ vows.describe('Ferrum').addBatch({
     }
   },
   
-  'Application :: Logger :: Transports': {
+  'Logger :: Transports': {
     topic: ferrum.Application({
       loggerTransports: [{
         transport: winston.transports.File,
@@ -75,7 +75,7 @@ vows.describe('Ferrum').addBatch({
     }
   },
     
-  'Application :: Logger :: Path/Directory does not exists': {
+  'Logger :: Path/Directory does not exists': {
     topic: ferrum.Application({
       logger: {
         filename: logPathDoesNotExists
@@ -89,7 +89,7 @@ vows.describe('Ferrum').addBatch({
     }
   },
   
-  'Application :: Logger :: Path/Directory exists': {
+  'Logger :: Path/Directory exists': {
     topic: function () {
       var promise = new events.EventEmitter();
   

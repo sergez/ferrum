@@ -4,15 +4,15 @@
 var vows = require('vows');
 var assert = require('assert');
 var util = require('util');
+var client = require('needle');
 
+var config = require('./config');
 var ferrum = require('../lib/index');
 var requestHandler = require('../lib/request-handler');
 
-var client = require('needle');
-
-// Ferrum :: Request Test Suite
-vows.describe('Ferrum/Request Handler/Render templates').addBatch({
-  'Request Handler': {
+// Ferrum :: Request Handler :: Render Test Suite
+vows.describe('Ferrum/Request Handler/Render').addBatch({
+  'Render': {
     topic: function () {
       // default handler
       function TemplateHandler () {
@@ -25,7 +25,9 @@ vows.describe('Ferrum/Request Handler/Render templates').addBatch({
       util.inherits(TemplateHandler, requestHandler.RequestHandler);
       
       ferrum.Application({
-        views: './test/tpl/',
+        host: config.host,
+        port: config.port,
+        views: './test/fixtures/',
         routes: {
           '^/template': TemplateHandler
         }
@@ -36,14 +38,14 @@ vows.describe('Ferrum/Request Handler/Render templates').addBatch({
     
     'Render template': {
       topic: function () {
-        client.get('127.0.0.1:8888/template', this.callback);
+        client.get(config.host + ':' + config.port + '/template', this.callback);
       },
-      'should be set-cookie header defined': function (err, response, body) {
+      'should be body defined correctly': function (err, response, body) {
         assert.equal(body, '<html><body>value</body></html>');
       }
     }
     
     // Template inherits
-
+    // Template helpers
   }
 }).export(module);

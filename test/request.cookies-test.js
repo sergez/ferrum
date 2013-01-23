@@ -4,13 +4,13 @@
 var vows = require('vows');
 var assert = require('assert');
 var util = require('util');
+var client = require('needle');
 
+var config = require('./config');
 var ferrum = require('../lib/index');
 var requestHandler = require('../lib/request-handler');
 
-var client = require('needle');
-
-// ferrum :: Request Test Suite
+// Ferrum :: Request Test Suite
 vows.describe('ferrum/Request Handler/Cookies').addBatch({
   'Request Handler': {
     topic: function () {
@@ -26,6 +26,8 @@ vows.describe('ferrum/Request Handler/Cookies').addBatch({
       util.inherits(CookieHandler, requestHandler.RequestHandler);
       
       ferrum.Application({
+        host: config.host,
+        port: config.port,
         routes: {
           '^/cookie$': CookieHandler
         }
@@ -36,7 +38,7 @@ vows.describe('ferrum/Request Handler/Cookies').addBatch({
     
     'Set cookies': {
       topic: function () {
-        client.get('127.0.0.1:8888/cookie', this.callback);
+        client.get(config.host + ':' + config.port + '/cookie', this.callback);
       },
       'should be set-cookie header defined': function (err, response, body) {
         assert.equal(/testCookie=value/.test(response.headers['set-cookie'][0]), true);
