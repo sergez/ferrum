@@ -1,7 +1,7 @@
 {
   "name": "ferrum",
-  "description": "Web framework for node.js",
-  "version": "0.0.2a",
+  "description": "Framework for node.js",
+  "version": "0.0.3a",
   "author": "Sergey Zvinsky <s.zvinsky@gmail.com>",
   "contributors": [
     { "name": "Sergey Zvinsky", "email": "s.zvinsky@gmail.com" }
@@ -25,11 +25,11 @@
     "cookies": ">=0.3.2",
     "keygrip": ">=0.2.2",
     "dustjs-linkedin": ">=1.0.0",
-    "node-static": ">=0.6.0"
+    "fibers": "1.0.0"
   },
   "devDependencies": {
     "vows": "0.6.x",
-    "needle": ">=0.4.5"
+    "needle": "0.4.8"
   },
   "scripts": {
     "test": "vows --spec --isolate"

@@ -4,7 +4,7 @@ Ferrum [alfa] [![Build Status](https://travis-ci.org/sergez/ferrum.png?branch=ma
 What is it?
 -----------
 
-Ferrum is simple and powerfull framework for [node.js](http://nodejs.org). It's designed for quick and simple development of high-performance application. Just try it.
+Ferrum is simple and powerfull framework for [node.js](http://nodejs.org). It's designed for quick and simple development of high-performance application.
 
 Instalation
 -----------

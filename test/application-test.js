@@ -6,7 +6,6 @@ var events = require('events');
 var path = require('path');
 
 var ferrum = require('../lib/index');
-var StaticRequestHandler = require('../lib/request-handler').StaticRequestHandler;
   
 var logDirExists = path.join(process.cwd(), './test/directory-exists');
 var logPathExists = path.join(process.cwd(), './test/directory-exists/app.log');
@@ -31,9 +30,8 @@ vows.describe('Ferrum/Application').addBatch({
       assert.isFunction(app.stop);
     },
     
-    'should be static router as default': function (app) {
-      assert.lengthOf(app.options.routes, 1);
-      assert.instanceOf(app.options.routes['^/static/(.*)$'], StaticRequestHandler);
+    'should not be static router as default': function (app) {
+      assert.lengthOf(app.options.routes, 0);
     },
     
     'should be Console as default logger transport': function (app) {
