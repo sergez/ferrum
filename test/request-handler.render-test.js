@@ -19,7 +19,7 @@ vows.describe('Ferrum/Request Handler/Render').addBatch({
         requestHandler.RequestHandler.call(this);
         
         this.get = function () {
-          this.render('index.html', {var: "value"});
+          this.render('index', {var: "value"});
         };
       }
       util.inherits(TemplateHandler, requestHandler.RequestHandler);

@@ -34,6 +34,10 @@ vows.describe('Ferrum/Application').addBatch({
       assert.lengthOf(app.options.routes, 0);
     },
     
+    'template engine should be defined': function (app) {
+      assert.isObject(app.options.templateEngine);
+    },
+    
     'should be Console as default logger transport': function (app) {
       assert.isObject(app.logger.transports);
       assert.lengthOf(app.logger.transports, 1);
