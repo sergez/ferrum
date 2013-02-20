@@ -19,9 +19,7 @@ vows.describe('Ferrum/Request Handler/Statics').addBatch({
       ferrum.Application({
         host: config.host,
         port: config.port,
-        static: {
-          path: './test/fixtures/'
-        }
+        staticPath: './test/fixtures/'
       }).run();
       
       return true;

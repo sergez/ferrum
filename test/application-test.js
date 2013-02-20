@@ -22,7 +22,21 @@ vows.describe('Ferrum/Application').addBatch({
     },
   
     'should be methods defined correctly': function (app) {
-      assert.isObject(app.options);
+      assert.isString(app.host);
+      assert.isString(app.port);
+      assert.isObject(app.routes);
+      assert.isFalse(app.debugMode);
+      assert.isString(app.logFilename);
+      assert.isFalse(app.logHandleExeptions);
+      assert.isTrue(app.logExitOnError);
+      assert.isTrue(app.logJSON);
+  
+      assert.isArray(app.logTransports);
+      assert.isString(app.staticPath);
+      assert.isString(app.viewsPath);
+      assert.isString(app.uploadsDir);
+      assert.isObject(app.templateEngine);
+  
       assert.isObject(app.logger);
       assert.instanceOf(app.logger, winston.Logger);
  
@@ -31,11 +45,11 @@ vows.describe('Ferrum/Application').addBatch({
     },
     
     'should not be static router as default': function (app) {
-      assert.lengthOf(app.options.routes, 0);
+      assert.lengthOf(app.routes, 0);
     },
     
     'template engine should be defined': function (app) {
-      assert.isObject(app.options.templateEngine);
+      assert.isObject(app.templateEngine);
     },
     
     'should be Console as default logger transport': function (app) {
@@ -63,7 +77,7 @@ vows.describe('Ferrum/Application').addBatch({
   
   'Logger :: Transports': {
     topic: ferrum.Application({
-      loggerTransports: [{
+      logTransports: [{
         transport: winston.transports.File,
         options: { filename: logPathDoesNotExists }
       }]
@@ -79,9 +93,7 @@ vows.describe('Ferrum/Application').addBatch({
     
   'Logger :: Path/Directory does not exists': {
     topic: ferrum.Application({
-      logger: {
-        filename: logPathDoesNotExists
-      }
+      logFilename: logPathDoesNotExists
     }),
   
     'should be one logger transport - Console': function (app) {
@@ -97,9 +109,7 @@ vows.describe('Ferrum/Application').addBatch({
   
       fs.mkdir( logDirExists, '0777', function (err) {
         var app = ferrum.Application({
-          logger: {
-            filename: logPathExists
-          }
+          logFilename: logPathExists
         });
         promise.emit('success', app);
       });

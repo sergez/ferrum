@@ -23,6 +23,15 @@ vows.describe('Ferrum/Template Engine').addBatch({
       assert.isFunction(engine.resolvePath);
     },
     
+    'should compile source': {
+      topic: function (engine) {
+        this.callback(null, engine.compile('source to be compiled'));
+      },
+      '-': function (compiledSource) {
+        assert.equal(compiledSource, 'source to be compiled');
+      }
+    },
+    
     'should load source of template': {
       topic: function (engine) {
         engine.load('index.html', this.callback);

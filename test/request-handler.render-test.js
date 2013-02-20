@@ -27,7 +27,7 @@ vows.describe('Ferrum/Request Handler/Render').addBatch({
       ferrum.Application({
         host: config.host,
         port: config.port,
-        views: './test/fixtures/',
+        viewsPath: './test/fixtures/',
         routes: {
           '^/template': TemplateHandler
         }
