@@ -1,0 +1,7 @@
+.c9revisions/
+.git/
+node_modules/
+test/
+.gitignore
+.travis.yml
+npm-debug.log
