@@ -43,8 +43,8 @@ vows.describe('ferrum/Request Handler/Query Params').addBatch({
         host: config.host,
         port: config.port,
         routes: {
-          '^/params$': ParamsHandler,
-          '^/files$': FilesHandler,
+          '^/params$': new ParamsHandler(),
+          '^/files$': new FilesHandler(),
         }
       }).run();
       

@@ -29,7 +29,7 @@ vows.describe('ferrum/Request Handler/Cookies').addBatch({
         host: config.host,
         port: config.port,
         routes: {
-          '^/cookie$': CookieHandler
+          '^/cookie$': new CookieHandler()
         }
       }).run();
       

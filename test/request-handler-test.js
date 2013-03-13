@@ -116,7 +116,7 @@ vows.describe('Ferrum/Request Handler').addBatch({
       ferrum.Application({
         host: config.host,
         port: config.port,
-        routes: { '^/$': MainHandler, '^/ok$': DefinedMethodHandler }
+        routes: { '^/$': new MainHandler(), '^/ok$': new DefinedMethodHandler() }
       }).run();
       
       return true;

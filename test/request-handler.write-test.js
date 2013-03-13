@@ -27,7 +27,7 @@ vows.describe('Ferrum/Request Handler').addBatch({
       ferrum.Application({
         host: config.host,
         port: config.port,
-        routes: { '^/write-test$': WriteHandler }
+        routes: { '^/write-test$': new WriteHandler() }
       }).run();
       
       return true;
