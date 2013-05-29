@@ -4,21 +4,16 @@ Ferrum [alfa] [![Build Status](https://travis-ci.org/sergez/ferrum.png?branch=ma
 What is it?
 -----------
 
-Ferrum is simple and powerfull framework for [node.js](http://nodejs.org). It's designed for quick and simple development of high-performance application.
+Ferrum is simple and powerful framework for [node.js](http://node js.org). It's designed for quick and simple development of high-performance application. Ferrum don't force you to organize your code how it wants - it's up to you and i suppose it gives some flexibility in development of apps.
 
 Instalation
 -----------
 
 `npm install ferrum`
 
-Documentation
--------------
-
-In progress
-
-
-Usage
------
+Hello, word
+-----------
+Here is an example of Ferrum app:
 
 ```js
 var util = require('util');
@@ -28,20 +23,21 @@ function MainHandler () {
     ferrum.RequestHandler.call(this);
     
     this.get = function () {
-        this.write("Hello world!");
+        this.write("Hello, world!");
     };
 }
 
 util.inherits(MainHandler, ferrum.RequestHandler);
 
 ferrum.Application({
-    port: process.env.PORT,
-    address: process.env.IP,
     routes: {
         '^/$': MainHandler
     }
 }).run();
 ```
+
+Then type http://localhost:8888  in browser address bar and enjoy.
+
 
 License
 -------
