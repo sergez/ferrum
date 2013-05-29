@@ -66,11 +66,11 @@ vows.describe('ferrum/Request Handler/Headers').addBatch({
         host: config.host,
         port: config.port,
         routes: {
-          '^/set-header$': new SetHeaderHandler(),
-          '^/get-header$': new GetHeaderHandler(),
-          '^/get-header-default-value$': new GetHeaderDefaltValueHandler(),
-          '^/get-request-header$': new GetRequestHeaderHandler(),
-          '^/get-request-header-default-value$': new GetRequestHeaderDefaultValueHandler()
+          '^/set-header$': SetHeaderHandler,
+          '^/get-header$': GetHeaderHandler,
+          '^/get-header-default-value$': GetHeaderDefaltValueHandler,
+          '^/get-request-header$': GetRequestHeaderHandler,
+          '^/get-request-header-default-value$': GetRequestHeaderDefaultValueHandler
         }
       }).run();
       

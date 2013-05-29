@@ -1,7 +1,7 @@
 {
   "name": "ferrum",
   "description": "Framework for node.js",
-  "version": "0.0.4a",
+  "version": "0.0.5a",
   "author": "Sergey Zvinsky <s.zvinsky@gmail.com>",
   "contributors": [
     { "name": "Sergey Zvinsky", "email": "s.zvinsky@gmail.com" }

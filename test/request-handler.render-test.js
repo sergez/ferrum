@@ -29,7 +29,7 @@ vows.describe('Ferrum/Request Handler/Render').addBatch({
         port: config.port,
         viewsPath: './test/fixtures/',
         routes: {
-          '^/template': new TemplateHandler()
+          '^/template': TemplateHandler
         }
       }).run();
       
