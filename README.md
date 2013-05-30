@@ -38,6 +38,57 @@ ferrum.Application({
 
 Then type http://localhost:8888  in browser address bar and enjoy.
 
+Usage
+-----
+
+* [Request handlers, arguments and query params](#request-handlers-arguments-and-query-params)
+
+
+Request handlers, arguments and query params
+------------------------------
+In Ferrum application every URL or URL expression corresponds to handler based on `ferrum.RequestHandler`. This handler contains methods for processing GET, POST and others of http requests.
+
+Allowed http-methods and appropriate ferrum methods are:
+
+* GET       > get()
+* POST      > post()
+* PATCH     > patch()
+* PUT       > put()
+* DELETE    > del()
+* HEAD      > head()
+* OPTIONS   > options()
+
+
+In following example the root path `/` points to MainHandler and the URL expression `/user/([0-9]+)` to UserHandler. Apart of that regular expression groups are passed as arguments to UserHandler.
+
+```
+function MainHandler () {
+    ferrum.RequestHandler.call(this);
+    
+    this.get = function () {
+        ...
+    };
+}
+util.inherits(MainHandler, ferrum.RequestHandler);
+
+
+fuction UserHandler () {
+    ferrum.RequestHandler.call(this);
+    
+    this.get = function (userId) {
+        ...
+    };
+}
+util.inherits(UserHandler, ferrum.RequestHandler);
+
+ferrum.Application({
+    routes: {
+        '^/$': MainHandler,
+        '^/user/([0-9]+)': UserHandler
+    }
+}).run();
+
+```
 
 License
 -------
