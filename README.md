@@ -4,7 +4,7 @@ Ferrum [alfa] [![Build Status](https://travis-ci.org/sergez/ferrum.png?branch=ma
 What is it?
 -----------
 
-Ferrum is simple and powerful framework for [node.js](http://node js.org). It's designed for quick and simple development of high-performance application. Ferrum don't force you to organize your code how it wants - it's up to you and i suppose it gives some flexibility in development of apps.
+Ferrum is simple and powerful framework for [node.js](http://nodejs.org). It's designed for quick and simple development of high-performance application. Ferrum don't force you to organize your code how it wants - it's up to you and i suppose it gives some flexibility in development of apps.
 
 Instalation
 -----------
@@ -41,10 +41,11 @@ Then type http://localhost:8888  in browser address bar and enjoy.
 Usage
 -----
 
-* [Request handlers, arguments and query params](#request-handlers-arguments-and-query-params)
+* [Request handlers and arguments](#request-handlers-and-arguments)
+* [Query params](#query-params)
 
 
-Request handlers, arguments and query params
+Request handlers and arguments
 ------------------------------
 In Ferrum application every URL or URL expression corresponds to handler based on `ferrum.RequestHandler`. This handler contains methods for processing GET, POST and others of http requests.
 
@@ -59,7 +60,7 @@ Allowed http-methods and appropriate ferrum methods are:
 * OPTIONS   > options()
 
 
-In following example the root path `/` points to MainHandler and the URL expression `/user/([0-9]+)` to UserHandler. Apart of that regular expression groups are passed as arguments to UserHandler.
+In following example the root path `/` points to MainHandler and the URL expression `/user/([0-9]+)` to UserHandler. Apart of that regular expression groups are passed as arguments to UserHandler handler.
 
 ```
 function MainHandler () {
@@ -84,11 +85,36 @@ util.inherits(UserHandler, ferrum.RequestHandler);
 ferrum.Application({
     routes: {
         '^/$': MainHandler,
-        '^/user/([0-9]+)': UserHandler
+        '^/user/([0-9]+)$': UserHandler
     }
 }).run();
 
 ```
+
+Query params
+------------
+To work with query paramenters ferrum use third-party component [qs](https://npmjs.org/package/qs). The result of parsing query string is available in `ferrum.Request` object.
+
+```
+// GET http://localhost/params?params1=value1&params2=value2
+
+function ParamsHandler, () {
+    ferrum.RequestHandler.call(this);
+    
+    this.get = function () {
+        this.write(JSON.stringify(this.request.query));
+        // => {"params1":"value1","params2":"value2"}
+    };
+}
+util.inherits(ParamsHandler, ferrum.RequestHandler);
+
+ferrum.Application({
+  routes: {
+    	'^/params$': ParamsHandler
+	}
+}).run();
+```
+
 
 License
 -------
