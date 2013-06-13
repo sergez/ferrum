@@ -33,8 +33,5 @@
   "scripts": {
     "test": "vows --spec --isolate"
   },
-  "main": "./lib/index",
-  "bin": {
-    "ferrum" : "./bin/cli.js"
-  }
+  "main": "./lib/index"
 }

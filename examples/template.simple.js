@@ -5,16 +5,14 @@ function MainHandler () {
     ferrum.RequestHandler.call(this);
     
     this.get = function () {
-        this.render('index', { "variable": "test variable" });
+      this.render('index', { "variable": "test variable" });
     };
 }
 
 util.inherits(MainHandler, ferrum.RequestHandler);
 
 ferrum.Application({
-  port: process.env.PORT,
-  host: process.env.IP,
-  views: './examples/views',
+  viewsPath: './examples/views',
   routes: {
     '^/$': MainHandler
   }

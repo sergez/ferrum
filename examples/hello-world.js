@@ -12,8 +12,6 @@ function MainHandler () {
 util.inherits(MainHandler, ferrum.RequestHandler);
 
 ferrum.Application({
-    port: process.env.PORT,
-    address: process.env.IP,
     routes: {
         '^/$': MainHandler
     }
