@@ -59,7 +59,7 @@ vows.describe('Ferrum/Request Handler').addBatch({
     topic: new requestHandler.RequestHandler(),
     
     'should be methods defined correctly': function (requestHandler) {
-      assert.isFunction(requestHandler.handle);
+      assert.isFunction(requestHandler.run);
       assert.isFunction(requestHandler.write);
       assert.isFunction(requestHandler.render);
       assert.isObject(requestHandler.header);

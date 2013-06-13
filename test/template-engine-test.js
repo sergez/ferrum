@@ -11,7 +11,7 @@ var TemplateEngine = require('../lib/template-engine').TemplateEngine;
 vows.describe('Ferrum/Template Engine').addBatch({
   'Template Engine Instance': {
     topic: new TemplateEngine({
-      viewsDir: './test/fixtures/'
+      viewsPath: './test/fixtures/'
     }),
     
     'should be methods defined correctly': function (engine) {
