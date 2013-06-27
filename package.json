@@ -21,10 +21,9 @@
     "winston": ">=0.6.2",
     "qs": ">=0.5.3",
     "formidable": ">=1.0.11",
-    "cookies": ">=0.3.2",
+    "cookies": ">=0.3.5",
     "keygrip": ">=0.2.2",
-    "dustjs-linkedin": ">=1.0.0",
-    "optimist": ">=0.3.4"
+    "dustjs-linkedin": ">=1.0.0"
   },
   "devDependencies": {
     "vows": "0.6.x",
